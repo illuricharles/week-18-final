@@ -2,11 +2,11 @@ name:Build on PR and Push
 
 on:
   pull_request:
-    branch:
+    branches:
       - main
       - master
   push:
-    branch:
+    branches:
       - main
       - master
 
@@ -20,11 +20,11 @@ jobs:
     - name:use Node.js
       uses:actions/setup-node@v2
       with:
-        node-version:'18'
+        node-version: '18'
   
 
     - name: Install dependencies
-      uses:npm install
+      run:npm install
 
     - name:run build
-      uses:npm run build
+      run:npm run build
