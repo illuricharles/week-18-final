@@ -1,0 +1,30 @@
+name:Build on PR and Push
+
+on:
+  pull_request:
+    branch:
+      - main
+      - master
+  push:
+    branch:
+      - main
+      - master
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - name: checkout code
+      uses: actions/checkout@v3
+
+    - name:use Node.js
+      uses:actions/setup-node@v2
+      with:
+        node-version:'18'
+  
+
+    - name: Install dependencies
+      uses:npm install
+
+    - name:run build
+      uses:npm run build
