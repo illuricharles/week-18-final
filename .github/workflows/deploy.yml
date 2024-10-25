@@ -30,6 +30,7 @@ jobs:
         - name: verify push image
           run:  docker pull charlesben/week-19:latest
       
+          
         - name: deploy to ec2
           uses: appleboy/ssh-action@master
           with:
